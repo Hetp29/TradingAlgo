@@ -1,0 +1,56 @@
+Final Balance: $10079.93
+Trade Log:
+Byt 2.7083330750465637 shares at 73.84616088867188 on 2020-02-24 00:00:00
+Sell 2.7083330750465637 shares at 67.6720962524414 on 2020-04-13 00:00:00
+Byt 1.8780341699875067 shares at 106.3162612915039 on 2020-09-18 00:00:00
+Sell 1.8780341699875067 shares at 123.79019165039062 on 2020-10-12 00:00:00
+Byt 1.8103303047375852 shares at 110.65489196777344 on 2020-10-28 00:00:00
+Sell 1.8103303047375852 shares at 122.32910919189452 on 2020-12-01 00:00:00
+Byt 1.536881462267891 shares at 130.61813354492188 on 2021-02-17 00:00:00
+Sell 1.536881462267891 shares at 125.68651580810548 on 2021-04-05 00:00:00
+Byt 1.571636528194944 shares at 127.6332015991211 on 2021-05-04 00:00:00
+Sell 1.571636528194944 shares at 130.47999572753906 on 2021-06-14 00:00:00
+Byt 1.3739729406468824 shares at 146.05999755859375 on 2021-09-17 00:00:00
+Sell 1.3739729406468824 shares at 146.5500030517578 on 2021-10-18 00:00:00
+Byt 1.1819549224686978 shares at 169.8000030517578 on 2022-01-18 00:00:00
+Sell 1.1819549224686978 shares at 168.82000732421875 on 2022-03-22 00:00:00
+Byt 1.2156828880039643 shares at 165.07000732421875 on 2022-04-18 00:00:00
+Sell 1.2156828880039643 shares at 146.35000610351562 on 2022-07-07 00:00:00
+Byt 1.2406594712224919 shares at 161.3800048828125 on 2022-08-29 00:00:00
+Sell 1.2406594712224919 shares at 152.33999633789062 on 2022-10-25 00:00:00
+Byt 1.4828599934744333 shares at 134.8699951171875 on 2022-11-09 00:00:00
+Sell 1.4828599934744333 shares at 137.8699951171875 on 2023-01-20 00:00:00
+Byt 1.3769341066728618 shares at 145.30999755859375 on 2023-03-01 00:00:00
+Sell 1.3769341066728618 shares at 155.85000610351562 on 2023-03-16 00:00:00
+Byt 1.101008536600692 shares at 181.9900054931641 on 2023-08-04 00:00:00
+Sell 1.101008536600692 shares at 187.6499938964844 on 2023-08-30 00:00:00
+Byt 1.2013732654336564 shares at 166.88999938964844 on 2023-10-26 00:00:00
+Sell 1.2013732654336564 shares at 181.82000732421875 on 2023-11-07 00:00:00
+Byt 1.081964632854168 shares at 185.63999938964844 on 2024-01-02 00:00:00
+Sell 1.081964632854168 shares at 195.17999267578125 on 2024-01-23 00:00:00
+Byt 1.0918401257311836 shares at 184.1499938964844 on 2024-02-14 00:00:00
+Sell 1.0918401257311836 shares at 176.5500030517578 on 2024-04-12 00:00:00
+Byt 1.2175538969099697 shares at 165.0 on 2024-04-19 00:00:00
+Sell 1.2175538969099697 shares at 183.3800048828125 on 2024-05-03 00:00:00
+Byt 0.9621253013375453 shares at 209.2700042724609 on 2024-08-05 00:00:00
+
+FInal balance and log of all trades during backtest using mean reversion
+Final balance is 10079.93, profit of 79.93 since starting balance is 10000
+2. Trade Log:
+Each line in the trade log represents a buy or sell order that was executed during the backtest. Here’s how to interpret them:
+
+Buy:
+Example: Buy 2.7083330750465637 shares at 73.84616088867188 on 2020-02-24 00:00:00
+This means on February 24, 2020, the algorithm bought 2.71 shares of the stock at a price of $73.85 per share.
+Sell:
+Example: Sell 2.7083330750465637 shares at 67.6720962524414 on 2020-04-13 00:00:00
+This means on April 13, 2020, the algorithm sold those same 2.71 shares at a price of $67.67 per share.
+Important Details in the Trade Log:
+Shares: The number of shares purchased or sold. The number of shares is fractional because you are buying based on a portion of your balance (determined by the risk_per_trade parameter).
+Price: The stock price at which the shares were bought or sold.
+Date: The date when the buy or sell transaction was executed.
+Performance Overview:
+You can see alternating Buy and Sell transactions.
+You made profits on some trades, like buying at $165.0 on April 19, 2024 and selling at $183.38 on May 3, 2024.
+You also experienced some losses, such as buying at $184.15 on February 14, 2024, and selling at $176.55 on April 12, 2024.
+Overall, the final balance indicates a small profit, and the trade log details each transaction made by the algorithm over the backtest period.
