@@ -15,3 +15,9 @@ def mean_reversion_strategy(df, window=20, z_score_threshold=1.5):
     df.loc[df['Z-Score'] > z_score_threshold, 'Signal'] = -1 #sell signal
     
     return df
+
+##rolling mean is average price over a given number of past days (20 by default), current price versus recent average
+#rolling standard deviation is how much price tends to fluctuate around average
+#z score is how far current price is from rolling mean 
+#buy when z score is less than -1.5 (price is lower than average)
+#sell when z score is greater than 1.5 (price is higher than average)

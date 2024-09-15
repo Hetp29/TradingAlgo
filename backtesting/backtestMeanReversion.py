@@ -15,7 +15,7 @@ def backtest_strategy(data, initial_balance=10000, risk_per_trade=0.02):
         if data['Signal'][i] == 1 and positions == 0:
             positions = (balance * risk_per_trade) / data['Adj Close'][i]
             balance -= positions * data['Adj Close'][i]
-            trade_log.append(f"Byt {positions} shares at {data['Adj Close'][i]} on {data.index[i]}")
+            trade_log.append(f"Buy {positions} shares at {data['Adj Close'][i]} on {data.index[i]}")
             
         elif data['Signal'][i] == -1 and positions > 0:
             balance += positions *data['Adj Close'][i]
@@ -29,7 +29,7 @@ def backtest_strategy(data, initial_balance=10000, risk_per_trade=0.02):
     return balance_df, trade_log
 
 if __name__ == "__main__":
-    stock_data = pd.read_csv("../data/AAPL_data.csv", index_col='Date', parse_dates=True)
+    stock_data = pd.read_csv("../data/NVDA_data.csv", index_col='Date', parse_dates=True)
     
     from strategies.mean_reversion import mean_reversion_strategy
     stock_data = mean_reversion_strategy(stock_data)
