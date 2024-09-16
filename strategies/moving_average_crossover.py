@@ -5,7 +5,8 @@
 
 def moving_average_crossover_strategy(df, short_window=50,long_window = 200):
     df['Short_MA'] = df['Adj Close'].rolling(window=short_window).mean()
-    df['Long_MA'] = df('Adj Close').rolling(window=long_window).mean()
+    df['Long_MA'] = df['Adj Close'].rolling(window=long_window).mean()
+
     
     df['Signal'] = 0 #default is no signal
     

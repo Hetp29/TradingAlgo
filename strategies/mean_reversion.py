@@ -21,3 +21,7 @@ def mean_reversion_strategy(df, window=20, z_score_threshold=1.5):
 #z score is how far current price is from rolling mean 
 #buy when z score is less than -1.5 (price is lower than average)
 #sell when z score is greater than 1.5 (price is higher than average)
+
+#betting that stock's price will return to average after moving too high or to low
+#short if stock moves too high, expecting it to fall back to average
+#buy it it moves too low, expecting price to rise back to average 
