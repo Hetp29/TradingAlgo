@@ -1,8 +1,8 @@
 #agent will learn from intersection with environment by using a neural network to approximate Q-value function 
 #Q-value function: expected future reward agent will get if it takes action in given state
 import pandas as pd
-from rl_trading import StockTradingEnv
-from strategies.train_dqn import DQNAgent
+from strategies.reinforcement_learning.rl_trading import StockTradingEnv
+from strategies.reinforcement_learning.train_dqn import DQNAgent
 import torch
 
 if __name__ == "__main__":
@@ -38,3 +38,6 @@ if __name__ == "__main__":
         
         if(e + 1) % 50 == 0:
             agent.save(f"dqn_model_{e+1}.pth")
+            
+#DQN (deep-q-network) is algorithm in reinforcement learning that uses deep neural networks to approximate Q-values 
+#q-value is long-term reward agent can receive by taking action in specific scenario 
