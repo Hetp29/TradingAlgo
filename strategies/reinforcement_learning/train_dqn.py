@@ -1,17 +1,17 @@
 #agent will learn from intersection with environment by using a neural network to approximate Q-value function 
 #Q-value function: expected future reward agent will get if it takes action in given state
 import pandas as pd
-from strategies.reinforcement_learning.rl_trading import StockTradingEnv
-from strategies.reinforcement_learning.train_dqn import DQNAgent
+from rl_trading import StockTradingEnv
+from dqn_agent import DQNAgent
 import torch
 
 if __name__ == "__main__":
-    df = pd.read_csv("../data/NVDA_data.csv")
+    df = pd.read_csv("../../data/NVDA_data.csv")
     
     env = StockTradingEnv(df)
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.n
-    agent = DQNAgent(input_dim=state_size, action_size=action_size)
+    agent = DQNAgent(input_dim=state_size, action_space=action_size)
     
     episodes = 1000
     batch_size = 32 #these are training params
