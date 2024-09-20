@@ -54,7 +54,7 @@ class StockTradingEnv(gym.Env):
         
         self.net_worth = self.balance + self.shares_held * current_price #updated net worth
         
-        reward = self.net_worth - self.initial_balance #reward (net worth change)
+        reward = (self.net_worth - self.initial_balance) / self.initial_balance #reward (net worth change)
         
         self.current_step += 1 #move to next step
         
