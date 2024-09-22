@@ -18,3 +18,6 @@ def build_lstm_model(input_shape):
     model.compile(optimizer='adam', loss='mean_squared_error')
     
     return model
+
+#first layer has 50 units and returns sequences to be passed to next layer
+#next layer has 50 units and does not return since it is finsl
