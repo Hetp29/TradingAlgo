@@ -1,24 +1,34 @@
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 import numpy as np
+from sklearn.model_selection import train_test_split
 
-def prepare_data(filename, window_size=60):
+def prepare_data(filename, window_size=60, features=['Adj Close']):
     df = pd.read_csv(filename)
     
-    data = df['Adj Close'].values.reshape(-1, 1)
+    
+    data = df[features].values
     
     scaler = MinMaxScaler(feature_range=(0, 1))
     scaled_data = scaler.fit_transform(data)
     
-    X_train = []
-    Y_train = []
+    X, Y = [], []
     
     for i in range(window_size, len(scaled_data)):
-        X_train.append(scaled_data[i - window_size:i, 0])
-        Y_train.append(scaled_data[i, 0])
+        X.append(scaled_data[i-window_size:i])
+        Y.append(scaled_data[i, 0])  
     
-    X_train, Y_train = np.array(X_train), np.array(Y_train)
+    X, Y = np.array(X), np.array(Y)
     
-    X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))
     
-    return X_train, Y_train, scaler
+    X = np.reshape(X, (X.shape[0], X.shape[1], len(features)))
+    
+    
+    X_train, X_val, Y_train, Y_val = train_test_split(X, Y, test_size=0.2, shuffle=False)
+    
+    return X_train, X_val, Y_train, Y_val, scaler
+
+def save_scaler(scaler, scaler_filename):
+    """Save the scaler to a file."""
+    import joblib
+    joblib.dump(scaler, scaler_filename)
