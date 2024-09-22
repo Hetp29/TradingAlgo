@@ -31,7 +31,7 @@ def backtest_strategy(data, initial_balance=10000, risk_per_trade=0.02):
 if __name__ == "__main__":
     stock_data = pd.read_csv("../data/NVDA_data.csv", index_col='Date', parse_dates=True)
     
-    from strategies.mean_reversion import mean_reversion_strategy
+    from strategies.Mean_Reversion.mean_reversion import mean_reversion_strategy
     stock_data = mean_reversion_strategy(stock_data)
     
     balance_df, trade_log = backtest_strategy(stock_data)

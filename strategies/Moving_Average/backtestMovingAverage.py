@@ -31,7 +31,7 @@ def backtest_strategy(data, initial_balance=10000, risk_per_trade=0.02):
 if __name__ == "__main__":
     stock_data = pd.read_csv("../data/NVDA_data.csv", index_col='Date', parse_dates=True)
     
-    from strategies.moving_average_crossover import moving_average_crossover_strategy
+    from strategies.Moving_Average.moving_average_crossover import moving_average_crossover_strategy
     
     stock_data = moving_average_crossover_strategy(stock_data)
     
