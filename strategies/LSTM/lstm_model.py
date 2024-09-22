@@ -7,10 +7,10 @@ def build_lstm_model(input_shape):
     model = Sequential()
     
     #LSTM layer with 50 units
-    model.add(LSTM(units = 50, return_sequence=True, input_shape=input_shape))
+    model.add(LSTM(units = 50, return_sequences=True, input_shape=input_shape))
     model.add(Dropout(0.2))
     
-    model.add(LSTM(units = 50, return_sequence = False))
+    model.add(LSTM(units = 50, return_sequences = False))
     model.add(Dropout(0.2))
     
     model.add(Dense(units=1))
@@ -20,4 +20,7 @@ def build_lstm_model(input_shape):
     return model
 
 #first layer has 50 units and returns sequences to be passed to next layer
-#next layer has 50 units and does not return since it is finsl
+#next layer has 50 units and does not return since it is final
+
+#epoch is one pass through training data set bu algorithm
+#one epoch is when you feed model batches and model processes it all from training dataset
