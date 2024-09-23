@@ -49,18 +49,18 @@ def train_dqn(df, agent, env, episodes=1000, batch_size=64, target_update=10):
             if done:
                 break
         
-        # Decay epsilon
+        
         if agent.epsilon > agent.epsilon_min:
             agent.epsilon *= agent.epsilon_decay
         
-        # Save the best model based on reward
+        
         if total_reward > best_reward:
             best_reward = total_reward
             best_model = agent.model.state_dict()
         
-        # Update target model every few episodes
+        
         if e % target_update == 0:
-            agent.update_target_model()
+            agent._update_target_model()
 
         total_rewards.append(total_reward)
         if episode_losses:
@@ -70,11 +70,11 @@ def train_dqn(df, agent, env, episodes=1000, batch_size=64, target_update=10):
         else:
             print(f"Episode {e+1}/{episodes} - Total Reward: {total_reward:.2f}, Loss: N/A, Epsilon: {agent.epsilon:.4f}")
 
-        # Save model every 50 episodes
+        
         if (e + 1) % 50 == 0:
             agent.save(f"dqn_model_{e+1}.pth")
     
-    # Save the best model
+    
     torch.save(best_model, "best_dqn_model.pth")
     
     return total_rewards, losses
@@ -82,7 +82,7 @@ def train_dqn(df, agent, env, episodes=1000, batch_size=64, target_update=10):
 def plot_metrics(total_rewards, losses):
     episodes = range(1, len(total_rewards) + 1)
     
-    # Plot Rewards
+    
     plt.subplot(2, 1, 1)
     plt.plot(episodes, total_rewards, label="Total Rewards")
     plt.title('Rewards Over Episodes')
@@ -90,7 +90,7 @@ def plot_metrics(total_rewards, losses):
     plt.ylabel('Total Reward')
     plt.grid(True)
     
-    # Plot Losses
+    
     plt.subplot(2, 1, 2)
     plt.plot(episodes, losses, label="Loss", color='orange')
     plt.title('Loss Over Episodes')
@@ -102,10 +102,10 @@ def plot_metrics(total_rewards, losses):
     plt.show()
 
 if __name__ == "__main__":
-    # Load stock data
+    
     df = pd.read_csv("../../data/NVDA_data.csv")
     
-    # Initialize environment and agent
+    
     env = StockTradingEnv(df)
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.n

@@ -6,7 +6,7 @@ from collections import deque
 import random
 
 class DQN(nn.Module):
-    # Define the neural network model for DQN with more layers and regularization
+    #Define the neural network model for DQN with more layers and regularization
     def __init__(self, input_dim, output_dim):
         super(DQN, self).__init__()
         self.fc1 = nn.Linear(input_dim, 128)
@@ -52,7 +52,7 @@ class DQNAgent:
         self.target_model.load_state_dict(self.model.state_dict())
 
     def _soft_update_target_model(self):
-        # Perform a soft update of target network parameters
+        #Perform a soft update of target network parameters
         for target_param, param in zip(self.target_model.parameters(), self.model.parameters()):
             target_param.data.copy_(self.tau * param.data + (1.0 - self.tau) * target_param.data)
 
@@ -60,7 +60,7 @@ class DQNAgent:
         self.memory.append((state, action, reward, next_state, done))
 
     def act(self, state, use_exploration_noise=True):
-        # Epsilon-greedy strategy
+        #Epsilon-greedy strategy
         if np.random.rand() <= self.epsilon and use_exploration_noise:
             return random.randrange(self.action_space)
         state = torch.tensor(state, dtype=torch.float32).unsqueeze(0)
@@ -77,7 +77,7 @@ class DQNAgent:
             state = torch.tensor(state, dtype=torch.float32).unsqueeze(0)
             next_state = torch.tensor(next_state, dtype=torch.float32).unsqueeze(0)
 
-            # Compute the target Q-value
+            
             target = reward
             if not done:
                 target = reward + self.gamma * torch.max(self.target_model(next_state)).item()
@@ -93,7 +93,7 @@ class DQNAgent:
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
         
-        # Soft update target model parameters
+        
         self._soft_update_target_model()
 
     def load(self, name):

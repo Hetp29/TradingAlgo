@@ -1,0 +1,10 @@
+Episode 1/1000 - Total Reward: 2105.07, Loss: N/A, Epsilon: 0.0100
+Episode 2/1000 - Total Reward: 307.82, Loss: N/A, Epsilon: 0.0100
+
+These two lines indicate that in Episode 1, the agent achieved a high reward of 2105.07 with no loss recorded, and in Episode 2, the agent earned a lower reward of 307.82, with epsilon (exploration rate) at its minimum (0.01); a high reward in Episode 1 is good, but the drop in reward in Episode 2 suggests inconsistent performance, which may need further tuning.
+
+
+
+
+
+

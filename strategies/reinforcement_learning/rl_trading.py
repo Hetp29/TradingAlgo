@@ -21,10 +21,10 @@ class StockTradingEnv(gym.Env):
         self.max_steps = len(df)
         self.transaction_fee_percent = transaction_fee_percent
         
-        # Action space: 0 = hold, 1 = buy, 2 = sell
+        #Action space: 0 = hold, 1 = buy, 2 = sell
         self.action_space = spaces.Discrete(3)
 
-        # Observation space: [current price, balance, shares held, net worth]
+        
         self.observation_space = spaces.Box(low=0, high=np.inf, shape=(4,), dtype=np.float32)
 
     def reset(self):
@@ -51,12 +51,12 @@ class StockTradingEnv(gym.Env):
         return self._next_observation(), reward, done, {}
 
     def _take_action(self, action, current_price):
-        if action == 1:  # Buy
+        if action == 1:  #Buy
             shares_bought = self.balance // current_price
             cost = shares_bought * current_price * (1 + self.transaction_fee_percent)
             self.balance -= cost
             self.shares_held += shares_bought
-        elif action == 2:  # Sell
+        elif action == 2:  #Sell
             revenue = self.shares_held * current_price * (1 - self.transaction_fee_percent)
             self.balance += revenue
             self.shares_held = 0
