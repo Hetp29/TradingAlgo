@@ -35,3 +35,4 @@ if __name__ == "__main__":
 
     # Save the merged data
     merged_df.to_csv('../../output/merged_news_stock_aapl.csv', index=False)
+    print(merged_df.head(20))
