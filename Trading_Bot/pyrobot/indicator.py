@@ -1,0 +1,1 @@
+#RSI, simple moving average, exponential moving average, etc.
