@@ -26,4 +26,5 @@ class Order {
 
 #endif
 
-//declarations of functions, like an object class
+//declarations of functions, classes and constructs 
+//data and function of class

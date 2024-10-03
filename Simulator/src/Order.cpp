@@ -24,3 +24,6 @@ int Order::getQuantity() const {
 void Order::setQuantity(int newQuantity) {
     quantity = newQuantity;
 }
+
+//implementation of object 
+//linked with object files to create final executable
