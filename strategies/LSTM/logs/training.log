@@ -1,0 +1,22 @@
+2024-10-04 19:33:26,453 - INFO - Starting training process...
+2024-10-04 19:36:19,297 - INFO - Starting training process...
+2024-10-04 19:37:12,359 - INFO - Starting training process...
+2024-10-04 19:37:12,364 - INFO - Loaded data from ../../data/NVDA_data.csv
+2024-10-04 19:37:12,372 - INFO - Data scaled using MinMaxScaler.
+2024-10-04 19:38:07,071 - INFO - Starting training process...
+2024-10-04 19:38:07,077 - INFO - Loaded data from ../../data/NVDA_data.csv
+2024-10-04 19:38:07,085 - INFO - Data scaled using MinMaxScaler.
+2024-10-04 19:38:07,085 - INFO - Scaled data type: <class 'numpy.ndarray'>
+2024-10-04 19:38:07,085 - INFO - Scaled data shape: (1183, 8), type: <class 'numpy.ndarray'>
+2024-10-04 19:39:09,798 - INFO - Starting training process...
+2024-10-04 19:39:09,804 - INFO - Loaded data from ../../data/NVDA_data.csv
+2024-10-04 19:39:09,804 - INFO - Data type after loading: <class 'pandas.core.frame.DataFrame'>
+2024-10-04 19:39:09,811 - INFO - Data type before scaling: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-04 19:39:09,812 - INFO - Data scaled using MinMaxScaler.
+2024-10-04 19:39:09,812 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-04 19:40:41,789 - INFO - Starting training process...
+2024-10-04 19:40:41,796 - INFO - Loaded data from ../../data/NVDA_data.csv
+2024-10-04 19:40:41,796 - INFO - Data type after loading: <class 'pandas.core.frame.DataFrame'>
+2024-10-04 19:40:41,804 - INFO - Data type before scaling: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-04 19:40:41,804 - INFO - Data scaled using MinMaxScaler.
+2024-10-04 19:40:41,804 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
