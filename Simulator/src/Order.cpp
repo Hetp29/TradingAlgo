@@ -1,9 +1,10 @@
 #include "Order.h"
 
-Order::Order(int id)
-
 Order::Order(int id, Type type, double price, int quantity)
     : id(id), type(type), price(price), quantity(quantity) {}
+
+Order::Order(int id, Type type, int quantity)
+    : id(id), type(type), price(0), quantity(quantity) {}
 
 int Order::getId() const {
     return id; //getter

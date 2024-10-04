@@ -3,9 +3,9 @@
 #include <algorithm>
 
 void OrderBook::addOrder(const Order& order) {
-    if (order.getType() == Order::Type::BUY) {
+    if (order.getType() == Order::Type::BUY || order.getType() == Order::Type::MARKET_BUY) {
         buyOrders.push_back(order);
-    } else {
+    } else if (order.getType() == Order::Type::SELL || order.getType() == Order::Type::MARKET_SELL) {
         sellOrders.push_back(order);
     }
 
@@ -31,7 +31,23 @@ void OrderBook:matchOrders() {
 
             if (buyOrder.getQuantity() == 0) buyOrders.erase(buyOrders.begin());
             if (sellOrder.getQuantity() == 0) sellOrders.erase(sellOrders.begin());
+            continue;
         }
+
+        if(sellOrder.getType() == Order::Type::MARKET_SELL) {
+            executeTrade(buyOrder, sellOrder);
+            if(buyOrder.getQuantity() == 0) buyOrders.erase(buyOrders.begin());
+            if(sellOrder.getQuantity() == 0) sellOrders.erase(sellOrders.begin());
+            continue;
+        }
+
+        if(buyOrder.getPrice() >= sellOrder.getPrice()) {
+            executeTrade(buyOrder, sellOrder);
+
+            if(buyOrder.getQuantity() == 0) buyOrders.erase(buyOrders.begin());
+            if(sellOrder.getQuantity() == 0) sellOrders.erase(sellOrders.begin());
+        }
+
         else {
             break;
         }
@@ -40,10 +56,10 @@ void OrderBook:matchOrders() {
 
 void OrderBook::executeTrade(Order& buyOrder, Order& sellOrder) {
     int tradeQuantity = std::min(buyOrder.getQuantity(), sellOrder.getQuantity());
-    double tradePrice = sellOrder.getPrice();
+    double tradePrice = (buyOrder.getType() == Order::Type::MARKET_BUY || sellOrder.getType() == Order::Type::MARKET_SELL)
+                        ? sellOrder.getPrice() : sellOrder.getPrice();
 
-    std::cout << "trade executed: "
-            <<tradeQuantity << " shares at $" << tradePrice << std::endl;
+    std::cout << "Trade executed: " << tradeQuantity << " shares at $" << tradePrice << std::endl;
         
     buyOrder.setQuantity(buyOrder.getQuantity() - tradeQuantity);
     sellOrder.setQuantity(sellOrder.getQuantity() - tradeQuantity);
@@ -52,14 +68,18 @@ void OrderBook::executeTrade(Order& buyOrder, Order& sellOrder) {
 void OrderBook::displayOrders() const {
     std::cout << "Buy Orders:" << std::endl;
     for (const auto& order : buyOrders) {
-        std::cout << "ID: " << order.getId() << ", Price: " << order.getPrice() 
-                << ", Quantity: " << order.getQuantity() << std::endl;
+        std::cout << "ID: " << order.getId() << ", Price: " << order.getPrice()
+                  << ", Quantity: " << order.getQuantity() << std::endl;
     }
 
     std::cout << "Sell Orders:" << std::endl;
     for (const auto& order : sellOrders) {
-        std::cout << "ID: " << order.getId() << ", Price: " << order.getPrice() 
-                << ", Quantity: " << order.getQuantity() << std::endl;
+        std::cout << "ID: " << order.getId() << ", Price: " << order.getPrice()
+                  << ", Quantity: " << order.getQuantity() << std::endl;
     }
 }
 //display orders in order book
+
+void OrderBook::displayTradeHistory() const {
+    std::cout << "Trade History:" <<std::endl;
+}

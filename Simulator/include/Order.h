@@ -6,9 +6,10 @@
 
 class Order {
     public:
-        enum class Type { BUY, SELL };
+        enum class Type { BUY, SELL, MARKET_BUY, MARKET_SELL };
 
         Order(int id, Type type, double price, int quantity);
+        Order(int id, Type type, int quantity);
 
         int getId() const;
         Type getType() const;
