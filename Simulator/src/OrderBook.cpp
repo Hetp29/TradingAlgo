@@ -13,7 +13,7 @@ void OrderBook::addOrder(const Order& order) {
 }
 //add order to book
 
-void OrderBook:matchOrders() {
+void OrderBook::matchOrders() {
     std::sort(buyOrders.begin(), buyOrders.end(), [](const Order& a, const Order& b) {
         return a.getPrice() > b.getPrice();
     });

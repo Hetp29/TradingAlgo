@@ -9,6 +9,7 @@ public:
     void addOrder(const Order& order);
     void matchOrders(); 
     void displayOrders() const;
+    void displayTradeHistory() const;
 
 private:
     std::vector<Order> buyOrders;

@@ -1,5 +1,5 @@
 //this represents a class for Order that represents buy and sell orders
-#indef ORDER_H
+#ifndef ORDER_H
 #define ORDER_H
 
 #include <string>
