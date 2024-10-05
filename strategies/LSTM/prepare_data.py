@@ -19,6 +19,7 @@ def scale_data(data):
     return scaled_data, scaler
 
 def create_dataset(data, window_size=60):
+    logging.info(f"Creating dataset with window_size: {window_size}")
     data = np.array(data)  # Ensure data is a NumPy array
     X, Y = [], []
     for i in range(window_size, len(data)):
@@ -54,15 +55,28 @@ def prepare_data(data_filename, window_size=60, features=['Adj Close']):
     df = load_data(data_filename)
     df = calculate_technical_indicators(df)
     
+    # Ensure technical indicators are correctly calculated
+    logging.info(f"Data after adding technical indicators: {df.head()}")
+    
     # Select relevant features
     selected_features = ['Adj Close', 'MA_50', 'MA_200', 'EMA_50', 'EMA_200', 'BB_upper', 'BB_lower', 'RSI']
+    
+    # Verify that all selected features are in the dataframe
+    missing_features = [feature for feature in selected_features if feature not in df.columns]
+    if missing_features:
+        raise ValueError(f"The following required features are missing from the data: {missing_features}")
+
     data = df[selected_features].values
+    
+    # Log the shape and type of the selected features
+    logging.info(f"Selected features data shape: {data.shape}, type: {type(data)}")
     
     # Scale data
     scaled_data, scaler = scale_data(data)
 
     # Ensure scaled_data is a NumPy array
     scaled_data = np.array(scaled_data)
+    logging.info(f"Scaled data type: {type(scaled_data)}, shape: {scaled_data.shape}")
 
     # Prepare the dataset for LSTM
     X, Y = create_dataset(scaled_data, window_size)
@@ -74,6 +88,7 @@ def prepare_data(data_filename, window_size=60, features=['Adj Close']):
 
     return X_train, X_val, Y_train, Y_val, scaler
 
+
 def save_scaler(scaler, scaler_filename):
     """Save the scaler to a file."""
     joblib.dump(scaler, scaler_filename)
@@ -81,3 +96,14 @@ def save_scaler(scaler, scaler_filename):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
+    
+    # Test with some stock data CSV
+    data_filename = 'stock_data.csv'
+    window_size = 60
+    X_train, X_val, Y_train, Y_val, scaler = prepare_data(data_filename, window_size)
+
+    # Print out the shapes to verify correctness
+    print(f"X_train shape: {X_train.shape}")
+    print(f"X_val shape: {X_val.shape}")
+    print(f"Y_train shape: {Y_train.shape}")
+    print(f"Y_val shape: {Y_val.shape}")

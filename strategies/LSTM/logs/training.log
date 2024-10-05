@@ -20,3 +20,58 @@
 2024-10-04 19:40:41,804 - INFO - Data type before scaling: <class 'numpy.ndarray'>, shape: (1183, 8)
 2024-10-04 19:40:41,804 - INFO - Data scaled using MinMaxScaler.
 2024-10-04 19:40:41,804 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:35:00,855 - INFO - Starting training process...
+2024-10-05 12:35:00,867 - INFO - Loaded data from ../../data/NVDA_data.csv
+2024-10-05 12:35:00,867 - INFO - Data type after loading: <class 'pandas.core.frame.DataFrame'>
+2024-10-05 12:35:00,885 - INFO - Data type before scaling: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:35:00,886 - INFO - Data scaled using MinMaxScaler.
+2024-10-05 12:35:00,886 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:36:44,508 - INFO - Starting training process...
+2024-10-05 12:36:44,523 - INFO - Loaded data from ../../data/NVDA_data.csv
+2024-10-05 12:36:44,523 - INFO - Data type after loading: <class 'pandas.core.frame.DataFrame'>
+2024-10-05 12:36:44,543 - INFO - Data type before scaling: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:36:44,545 - INFO - Data scaled using MinMaxScaler.
+2024-10-05 12:36:44,545 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:36:44,545 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:36:44,546 - INFO - Creating dataset with window_size: ['Open', 'High', 'Low', 'Adj Close']
+2024-10-05 12:38:06,992 - INFO - Starting training process...
+2024-10-05 12:38:06,999 - INFO - Loaded data from ../../data/NVDA_data.csv
+2024-10-05 12:38:06,999 - INFO - Data type after loading: <class 'pandas.core.frame.DataFrame'>
+2024-10-05 12:38:07,006 - INFO - Data type before scaling: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:38:07,007 - INFO - Data scaled using MinMaxScaler.
+2024-10-05 12:38:07,007 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:38:07,007 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:38:07,007 - INFO - Creating dataset with window_size: ['Open', 'High', 'Low', 'Adj Close']
+2024-10-05 12:44:05,788 - INFO - Starting training process...
+2024-10-05 12:44:05,794 - INFO - Loaded data from ../../data/NVDA_data.csv
+2024-10-05 12:44:05,794 - INFO - Data type after loading: <class 'pandas.core.frame.DataFrame'>
+2024-10-05 12:44:05,803 - INFO - Data type before scaling: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:44:05,804 - INFO - Data scaled using MinMaxScaler.
+2024-10-05 12:44:05,804 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:44:05,804 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:44:05,804 - INFO - Creating dataset with window_size: ['Open', 'High', 'Low', 'Adj Close']
+2024-10-05 12:46:39,853 - INFO - Starting training process...
+2024-10-05 12:46:39,861 - INFO - Loaded data from ../../data/NVDA_data.csv
+2024-10-05 12:46:39,861 - INFO - Data type after loading: <class 'pandas.core.frame.DataFrame'>
+2024-10-05 12:46:39,869 - INFO - Data type before scaling: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:46:39,870 - INFO - Data scaled using MinMaxScaler.
+2024-10-05 12:46:39,870 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:46:39,870 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:46:39,870 - INFO - Creating dataset with window_size: ['Open', 'High', 'Low', 'Adj Close']
+2024-10-05 12:48:15,384 - INFO - Starting training process...
+2024-10-05 12:48:15,393 - INFO - Loaded data from ../../data/NVDA_data.csv
+2024-10-05 12:48:15,393 - INFO - Data type after loading: <class 'pandas.core.frame.DataFrame'>
+2024-10-05 12:48:15,414 - INFO - Data after adding technical indicators:          Date     Open     High  ...  BB_upper  BB_lower  RSI
+0  2020-01-02  5.96875  5.99775  ...       0.0       0.0  0.0
+1  2020-01-03  5.87750  5.94575  ...       0.0       0.0  0.0
+2  2020-01-06  5.80800  5.93175  ...       0.0       0.0  0.0
+3  2020-01-07  5.95500  6.04425  ...       0.0       0.0  0.0
+4  2020-01-08  5.99400  6.05100  ...       0.0       0.0  0.0
+
+[5 rows x 14 columns]
+2024-10-05 12:48:15,415 - INFO - Selected features data shape: (1183, 8), type: <class 'numpy.ndarray'>
+2024-10-05 12:48:15,415 - INFO - Data type before scaling: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:48:15,415 - INFO - Data scaled using MinMaxScaler.
+2024-10-05 12:48:15,415 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:48:15,415 - INFO - Scaled data type: <class 'numpy.ndarray'>, shape: (1183, 8)
+2024-10-05 12:48:15,415 - INFO - Creating dataset with window_size: ['Open', 'High', 'Low', 'Adj Close']
